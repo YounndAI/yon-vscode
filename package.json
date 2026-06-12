@@ -1,0 +1,94 @@
+{
+  "name": "yon",
+  "description": "Syntax highlighting, snippets, and language support for YON™ — the stream-first data format for AI agents, configuration, and domain modeling.",
+  "version": "0.1.2",
+  "author": {
+    "name": "MARLINK TRADING SRL (YounndAI)",
+    "url": "https://younndai.com"
+  },
+  "contributors": [
+    {
+      "name": "Alexandru Mareș",
+      "url": "https://allemaar.com"
+    }
+  ],
+  "bugs": "https://github.com/YounndAI/yon-vscode/issues",
+  "categories": [
+    "Programming Languages",
+    "Formatters",
+    "Snippets"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "yon",
+        "aliases": [
+          "YON",
+          "yon",
+          "YounndAI Object Notation"
+        ],
+        "extensions": [
+          ".yon"
+        ],
+        "configuration": "./language-configuration.json",
+        "icon": {
+          "light": "icons/yon-file.svg",
+          "dark": "icons/yon-file.svg"
+        }
+      }
+    ],
+    "grammars": [
+      {
+        "language": "yon",
+        "scopeName": "source.yon",
+        "path": "./syntaxes/yon.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "yon",
+        "path": "./snippets/yon.json"
+      }
+    ]
+  },
+  "displayName": "YON — YounndAI Object Notation",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "galleryBanner": {
+    "color": "#111118",
+    "theme": "dark"
+  },
+  "homepage": "https://yon.younndai.com",
+  "icon": "icons/yon-icon.png",
+  "keywords": [
+    "yon",
+    "younndai",
+    "syntax-highlighting",
+    "data-format",
+    "ai-agents",
+    "llm",
+    "configuration",
+    "domain-modeling",
+    "structured-data",
+    "language-support"
+  ],
+  "license": "Apache-2.0",
+  "publisher": "YounndAI",
+  "qna": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YounndAI/yon-vscode.git"
+  },
+  "files": [
+    "syntaxes",
+    "snippets",
+    "icons",
+    "language-configuration.json",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "NOTICE",
+    "TRADEMARK.md"
+  ]
+}

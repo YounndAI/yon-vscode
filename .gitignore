@@ -1,0 +1,8 @@
+node_modules
+*.vsix
+.turbo
+*.tsbuildinfo
+.env
+.env.local
+.env.*
+!.env.example

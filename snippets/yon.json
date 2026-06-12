@@ -1,0 +1,181 @@
+{
+  "@DOC — Document Header": {
+    "prefix": "@DOC",
+    "body": [
+      "@DOC ver=2.0 | id=${1:doc-id} | title=\"${2:Title}\" | kind=${3|doc,skill,spec,workflow,rule,note|} | profile=${4|exec,core,decl,audit,cognitive,agent,full|} | fmt=${5|canon,min,ultra|}"
+    ],
+    "description": "YON document header with version, identity, classification, and output settings"
+  },
+  "@DOC — With Scenario": {
+    "prefix": "@DOC scenario",
+    "body": [
+      "@DOC ver=2.0 | id=${1:doc-id} | title=\"${2:Title}\" | scenario=${3|prompt,chat,config,agent,audit,clinical,fintech,legal,support,npc,classroom,dispatch,factory|}"
+    ],
+    "description": "YON document header using a scenario preset"
+  },
+  "@DOC — With Domain": {
+    "prefix": "@DOC domain",
+    "body": [
+      "@DOC ver=2.0 | id=${1:doc-id} | title=\"${2:Title}\" | kind=${3|doc,workflow,rule|} | profile=${4|exec,audit,cognitive,agent,full|} | domain=${5|yai.aerospace,yai.agriculture,yai.automotive,yai.compliance,yai.construction,yai.devops,yai.dialogue,yai.ecommerce,yai.education,yai.energy,yai.environmental,yai.fintech,yai.gaming,yai.government,yai.health,yai.hospitality,yai.hr,yai.infrastructure,yai.insurance,yai.legal,yai.logistics,yai.manufacturing,yai.maritime,yai.media,yai.pharma,yai.realestate,yai.research,yai.sai,yai.security,yai.sessions,yai.telecom,yai.transportation|} | fmt=${6|canon,min,ultra|}"
+    ],
+    "description": "YON document header with industry domain"
+  },
+  "@SEC — Section": {
+    "prefix": "@SEC",
+    "body": "@SEC name=\"${1:Section Name}\"",
+    "description": "YON section divider"
+  },
+  "@NOTE — Note": {
+    "prefix": "@NOTE",
+    "body": "@NOTE text=\"${1:Note content}\"",
+    "description": "YON informational note"
+  },
+  "@RULE — Rule": {
+    "prefix": "@RULE",
+    "body": "@RULE rid=rule:${1:id} | lvl=${2|MUST,SHOULD,MAY,MUST_NOT|} | when=\"${3:condition}\" | then=\"${4:consequence}\"",
+    "description": "YON rule with RFC 2119 severity level"
+  },
+  "@RULE — With Reason": {
+    "prefix": "@RULE because",
+    "body": "@RULE rid=rule:${1:id} | lvl=${2|MUST,SHOULD,MAY,MUST_NOT|} | when=\"${3:condition}\" | then=\"${4:consequence}\" | because=\"${5:rationale}\"",
+    "description": "YON rule with explicit rationale"
+  },
+  "@STEP — Workflow Step": {
+    "prefix": "@STEP",
+    "body": "@STEP rid=step:${1:id} | n:int=${2:1} | op=${3:std:op}@v1 | in=[${4}] | out=[${5}] | note=\"${6:Description}\"",
+    "description": "YON workflow step with operation, inputs, and outputs"
+  },
+  "@CHECK — Assertion": {
+    "prefix": "@CHECK",
+    "body": "@CHECK rid=check:${1:id} | assert=\"${2:condition}\" | fail=${3|ABORT,WARN,SKIP|} | msg=\"${4:Failure message}\"",
+    "description": "YON pre/post-condition check"
+  },
+  "@MAP — Key-Value Map": {
+    "prefix": "@MAP",
+    "body": "@MAP id=${1:MapName} | pairs=[\"${2:key1}\"->\"${3:val1}\",\"${4:key2}\"->\"${5:val2}\"]",
+    "description": "YON map with quoted key-value pairs"
+  },
+  "@CFG — Configuration": {
+    "prefix": "@CFG",
+    "body": "@CFG rid=cfg:${1:id} | set=[${2:key}=${3:value}]",
+    "description": "YON configuration record"
+  },
+  "@SCHEMA — Schema": {
+    "prefix": "@SCHEMA",
+    "body": "@SCHEMA rid=schema:${1:id} | name=\"${2:Name}\" | type=${3|record,field,enum|}",
+    "description": "YON schema definition"
+  },
+  "@INTENT — Intent": {
+    "prefix": "@INTENT",
+    "body": "@INTENT goal=\"${1:What this document achieves}\" | audience=${2|agent,human,system|}",
+    "description": "YON document intent declaration"
+  },
+  "@SCOPE — Scope": {
+    "prefix": "@SCOPE",
+    "body": "@SCOPE ${1|in,out|}=\"${2:boundary}\"",
+    "description": "YON scope boundary"
+  },
+  "@REF — Reference": {
+    "prefix": "@REF",
+    "body": "@REF id=${1:ref-id} | path=\"${2:target}\"",
+    "description": "YON cross-document reference"
+  },
+  "@META — Metadata": {
+    "prefix": "@META",
+    "body": "@META ${1:key}=\"${2:value}\"",
+    "description": "YON metadata record"
+  },
+  "@DEF — Definition": {
+    "prefix": "@DEF",
+    "body": "@DEF name=${1:name} | key=\"${2:key}\" | default=\"${3:value}\"",
+    "description": "YON definition (reusable constant)"
+  },
+  "@STAMP — Provenance": {
+    "prefix": "@STAMP",
+    "body": "@STAMP ts:ts=${1:2026-01-01T00:00:00Z} | src=${2|human,system,agent|}",
+    "description": "YON provenance timestamp (audit profile)"
+  },
+  "@CATCH — Error Handler": {
+    "prefix": "@CATCH",
+    "body": "@CATCH target=rid:step:${1:target} | on=\"${2|timeout,error,timeout|error|}\" | do=rid:step:${3:fallback}",
+    "description": "YON error catch directive"
+  },
+  "@RETRY — Retry Policy": {
+    "prefix": "@RETRY",
+    "body": "@RETRY target=rid:step:${1:target} | max:int=${2:3} | delay_ms:int=${3:500} | backoff=${4|exponential,linear,fixed|}",
+    "description": "YON retry policy for a workflow step"
+  },
+  "@ERROR — Error Record": {
+    "prefix": "@ERROR",
+    "body": "@ERROR code=${1|E001,E002,E003,E004,E005|} | msg=\"${2:Error description}\"",
+    "description": "YON error record"
+  },
+  "@PATCH — Delta Change": {
+    "prefix": "@PATCH",
+    "body": "@PATCH target=rid:${1:target} | op=${2|add,remove,replace|} | key=${3:field} | value=\"${4:new_value}\"",
+    "description": "YON delta patch operation"
+  },
+  "@VOID — Deletion Marker": {
+    "prefix": "@VOID",
+    "body": "@VOID target=rid:${1:target} | reason=\"${2:Why this was voided}\"",
+    "description": "YON soft-delete marker"
+  },
+  "@TURN — Dialogue Turn": {
+    "prefix": "@TURN",
+    "body": "@TURN rid=turn:${1:001} | from=${2|user,assistant,system|} | to=${3|assistant,user,system|}",
+    "description": "YON conversational turn (dialogue feature)"
+  },
+  "@ACK — Acknowledgment": {
+    "prefix": "@ACK",
+    "body": "@ACK target=rid:turn:${1:001} | status=${2|received,processed,error|}",
+    "description": "YON acknowledgment record (dialogue feature)"
+  },
+  "@SESSION — Session": {
+    "prefix": "@SESSION",
+    "body": "@SESSION rid=sess:${1:id} | durability=${2|ephemeral,persistent|} | ttl_hours:int=${3:24}",
+    "description": "YON session durability record (sessions feature)"
+  },
+  "@BEGIN/@END — Code Block": {
+    "prefix": "@BEGIN",
+    "body": [
+      "@BEGIN ${1|JSON,TS,TSX,JS,CSS,HTML,MD,YAML,SQL,PY,RUST,GO,BASH|}",
+      "${2:content}",
+      "@END ${1}"
+    ],
+    "description": "YON embedded content block"
+  },
+  "@BEGIN — Shorthand Block": {
+    "prefix": "@BEGIN#",
+    "body": [
+      "@BEGIN ${1|json,ts,tsx,js,css,html,md,yaml,sql,py,rust,go,bash|}#${2:block-id}",
+      "${3:content}",
+      "@END ${1}#${2}"
+    ],
+    "description": "YON shorthand block with ID"
+  },
+  "@INPUT — Workflow Input": {
+    "prefix": "@INPUT",
+    "body": "@INPUT rid=input:${1:id} | name=${2:param_name} | type=${3|str,int,float,bool,ref|} | required=${4|true,false|}",
+    "description": "YON workflow input parameter"
+  },
+  "@OUTPUT — Workflow Output": {
+    "prefix": "@OUTPUT",
+    "body": "@OUTPUT rid=output:${1:id} | name=${2:param_name} | type=${3|str,int,float,bool,ref|}",
+    "description": "YON workflow output declaration"
+  },
+  "@YIELD — Intermediate Result": {
+    "prefix": "@YIELD",
+    "body": "@YIELD rid=yield:${1:id} | from=rid:step:${2:step} | value=\"${3:result}\"",
+    "description": "YON intermediate workflow result"
+  },
+  "@CHECKPOINT — Session Checkpoint": {
+    "prefix": "@CHECKPOINT",
+    "body": "@CHECKPOINT rid=cp:${1:id} | target=rid:sess:${2:session} | reason=\"${3:Why checkpoint}\"",
+    "description": "YON session durability checkpoint"
+  },
+  "@RECOVER — Session Recovery": {
+    "prefix": "@RECOVER",
+    "body": "@RECOVER target=rid:cp:${1:checkpoint} | strategy=${2|resume,replay,skip|}",
+    "description": "YON session recovery directive"
+  }
+}

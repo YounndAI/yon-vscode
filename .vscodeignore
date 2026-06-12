@@ -1,0 +1,14 @@
+# Exclude everything by default (whitelist approach)
+**
+
+# Include only what the extension needs
+!package.json
+!README.md
+!LICENSE
+!NOTICE
+!TRADEMARK.md
+!CHANGELOG.md
+!language-configuration.json
+!syntaxes/**
+!snippets/**
+!icons/**
